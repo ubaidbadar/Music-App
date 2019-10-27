@@ -9,6 +9,10 @@ import sound6 from './sounds/ufo.mp3';
 
 function App() {
   const colors = ['#ef5350', '#7e57c2', '#26a69a', '#8bc34a', '#ff7043', '#9c27b0'];
+  const sounds = [sound1, sound2, sound3, sound4, sound5, sound6]
+  const runMusic = (elm) => {
+    elm.target.childNodes[0].play();
+  }
   return (
     <div className="App">
       <h1>Tap Music</h1>
@@ -17,7 +21,9 @@ function App() {
 
       <div className='music'>
         {colors.map((color, index) => (
-          <div style={{ backgroundColor: color }}></div>
+          <div style={{ backgroundColor: color }} onClick={runMusic} key={color}>
+            <audio src={sounds[index]} />
+          </div>
         ))}
       </div>
     </div>
